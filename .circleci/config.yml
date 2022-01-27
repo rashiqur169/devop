@@ -9,14 +9,16 @@ jobs:
     # Specify the execution environment. You can specify an image from Dockerhub or use one of our Convenience Images from CircleCI's Developer Hub.
     # See: https://circleci.com/docs/2.0/configuration-reference/#docker-machine-macos-windows-executor
     docker:
-      - image: cimg/base:stable
+      - image:circleci/ruby:2.5.3
     # Add steps to the job
     # See: https://circleci.com/docs/2.0/configuration-reference/#steps
+    parallelism: 16
     steps:
-      - checkout
       - run:
-          name: "Say hello"
-          command: "echo Hello, World!"
+          name: install Dependencies
+          command: l
+          lscpu 
+          echo hello
 
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/2.0/configuration-reference/#workflows
